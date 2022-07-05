@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    {% block title %}
+        <title>INDEX</title>
+    {% endblock %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block css %}{% endblock %}
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="">Ignite</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="/index/" class="nav-link">index</a></li>
+                <li class="nav-item"><a href="/data/list/" class="nav-link">ANIMATE</a></li>
+                <li class="nav-item"><a href="/data/piechart/" class="nav-link">chart</a></li>
+                <li class="nav-item"><a href="https://qm.qq.com/cgi-bin/qm/qr?k=c_rZmXKAGD7syvq5hOvh8D9nNqiNsr1G&noverify=0#
+" class="nav-link">contact</a></li>
+                <li class="nav-item cta"><a href="/logout" class="nav-link"><span>Logout</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+{% block content %}
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'img/bg_1_1.png' %});height: 400px !important;">
+        <div class="overlay"></div>
+        <div class="container-fluid px-0">
+            <div class="row d-md-flex no-gutters slider-text align-items-center js-fullheight justify-content-center">
+                <div class="col-md-8 text-center d-flex align-items-center ftco-animate js-fullheight">
+                    <div class="text mt-5">
+{#                        <span class="subheading">show</span>#}
+{#                        <h1 class="mb-3">bilibili related drama data acquisition</h1>#}
+{#                        <p>nice to meet you</p>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="ftco-section ftco-counter bg-light img" id="section-counter">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-10 text-center heading-section ftco-animate">
+                    <h2 class="mb-4">更新数据统计</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18 text-center">
+                        <div class="text">
+                            <strong class="number" data-number="{{ newani_num }}">0</strong>
+                            <span>新番更新数量</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18 text-center">
+                        <div class="text">
+                            <strong class="number" data-number="{{ rank_num }}">0</strong>
+                            <span>排行榜更新数量</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18 text-center">
+                        <div class="text">
+                            <strong class="number" data-number="66">0</strong>
+                            <span>暂定</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18 text-center">
+                        <div class="text">
+                            <strong class="number" data-number="88">0</strong>
+                            <span>暂定</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+<!-- 登录面板 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+                <button type="button" class="btn btn-primary">登 录</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Ignite</h2>
+                    <p>Social software related links</p>
+                    <ul class="ftco-footer-social list-unstyled mb-0">
+                        <li class="ftco-animate"><a href="https://twitter.com/Avein59489900"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Unseful Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.bilibili.com" class="py-2 d-block">bilibili</a></li>
+                        <li><a href="https://www.acfun.cn" class="py-2 d-block">AcFun</a></li>
+                        <li><a href="https://www.tsdm39.net" class="py-2 d-block">TSDM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Navigational</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="/index" class="py-2 d-block">Index</a></li>
+                        <li><a href="/data/list/" class="py-2 d-block">Animate</a></li>
+                        <li><a href="/data/chart/" class="py-2 d-block">Chart</a></li>
+                        <li><a href="/contact/" class="py-2 d-block">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Office</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">None</span></li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span
+                                    class="text">+86 00000000000</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span
+                                    class="text">1303541051@qq.com</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+                <p>Copyright &copy; 2021.Company name All rights reserved.<a target="_blank"
+                                                                             href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"></circle>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"></circle>
+    </svg>
+</div>
+
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'js/scrollax.min.js' %}"></script>
+
+<script src="{% static 'js/google-map.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<script type="text/javascript">
+
+</script>
+
+{% block js %}{% endblock %}
+
+</body>
+</html>

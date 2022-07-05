@@ -1,0 +1,37 @@
+pip install django
+
+apt-get install build-essential python-dev
+
+apt-get install python-devel
+
+安装uwsgi最好把 python python-devel gcc setuptools都给安装了 免得报错
+
+pip install uwsgi
+
+sudo apt-get install libmysqlclient-dev
+
+pip install mysqlclient
+
+pip install requests
+
+pip install beautifulsoup4
+
+pip install pillow
+
+pip install lxml
+
+
+
+
+server {
+                listen     80;
+                server_name avein.eu.org;
+
+                location / {
+                        include uwsgi_params;
+                        uwsgi_pass 127.0.0.1:8000;
+                }
+                location /static {
+                        alias /home/AniSite/AniSite/ani_static/static;
+                }
+        }

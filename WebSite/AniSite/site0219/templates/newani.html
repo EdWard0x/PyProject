@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    <title>LIST</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'img/bg_2_2.png' %});"
+         data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+{#                <div class="col-md-8 ftco-animate text-center text-center mt-5">#}
+{#                    <p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.html">INDEX <i#}
+{#                            class="ion-ios-arrow-forward"></i></a></span> <span>ANIMATE</span></p>#}
+{#                    <h1 class="mb-3 bread">ANIMATE</h1>#}
+{#                </div>#}
+            </div>
+        </div>
+    </div>
+
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h2 class="mb-4">新番时间表</h2>
+                    <p>根据哔哩哔哩相关接口爬取.</p>
+                    <p><a href="/data/rank/" class="btn btn-primary px-4 py-3">番剧排行榜</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-primary">
+                            <tr>
+                                <th>番名</th>
+                                <th>日期</th>
+                                <th>星期</th>
+                                <th>更新集数</th>
+                                <th>更新时间</th>
+                                <th>播放地址</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for obj in query %}
+                            <tr>
+                                <td class="color">{{ obj.title }}</td>
+                                <td>{{ obj.date }}</td>
+                                <td>{{ obj.day_of_week }}</td>
+                                <td>{{ obj.pub_index }}</td>
+                                <td>{{ obj.pub_time }}</td>
+                                <td><a href="https://{{ obj.vedio_addr }}" target="_blank" class="btn btn-primary">跳转播放</a></td>
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

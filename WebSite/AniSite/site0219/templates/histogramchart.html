@@ -1,0 +1,145 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    <title>CHART</title>
+{% endblock %}
+
+{% block content %}
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'img/bg_2.jpg' %});"
+         data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-8 ftco-animate text-center text-center mt-5">
+                    <p class="breadcrumbs mb-0"><span class="mr-3"><a href="index.html">Index <i
+                            class="ion-ios-arrow-forward"></i></a></span> <span>Chart</span></p>
+                    <h1 class="mb-3 bread">Chart</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h2 class="mb-4" style="color: deepskyblue">排行榜观众数与收藏数统计</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center ftco-animate">
+                    <div class="steps">
+                        <div id="main" style="width: 100%;height:800px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block js %}
+    <script src="{% static 'js/echarts.js' %}"></script>
+    <script type="text/javascript">
+
+        $(function (){
+            piechartBind();
+        })
+
+        function piechartBind(){
+            // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+            },
+            legend: {
+                data: [
+                    'Direct',
+                    'Marketing',
+                    'Search Engine',
+                    'Email',
+                    'Union Ads',
+                    'Video Ads',
+                    'Baidu',
+                    'Google',
+                    'Bing',
+                    'Others'
+                ]
+            },
+            series: [
+                {
+                    name: '收藏数图表',
+                    type: 'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+                    label: {
+                        position: 'inner',
+                        fontSize: 14
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        {% for tmp_in in tmp_in_list %}
+                            {value: {{tmp_in.vvalue}}, name: '{{ tmp_in.nname }}'},
+                        {% endfor %}
+                    ]
+                },
+                {
+                    name: '观众数图表',
+                    type: 'pie',
+                    radius: ['45%', '60%'],
+                    labelLine: {
+                        length: 30
+                    },
+                    label: {
+                        formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                        backgroundColor: '#F6F8FC',
+                        borderColor: '#8C8D8E',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        rich: {
+                            a: {
+                                color: '#6E7079',
+                                lineHeight: 22,
+                                align: 'center'
+                            },
+                            hr: {
+                                borderColor: '#8C8D8E',
+                                width: '100%',
+                                borderWidth: 1,
+                                height: 0
+                            },
+                            b: {
+                                color: '#4C5058',
+                                fontSize: 14,
+                                fontWeight: 'bold',
+                                lineHeight: 33
+                            },
+                            per: {
+                                color: '#fff',
+                                backgroundColor: '#4C5058',
+                                padding: [3, 4],
+                                borderRadius: 4
+                            }
+                        }
+                    },
+                    data: [
+                        {% for tmp_out in tmp_out_list %}
+                            {value: {{tmp_out.vvalue}}, name: '{{ tmp_out.nname }}'},
+                        {% endfor %}
+                    ]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        }
+
+
+    </script>
+{% endblock %}
