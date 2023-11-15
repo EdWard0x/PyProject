@@ -11,7 +11,7 @@ useruid_arr = []
 nodeuid_arr = []
 
 def login(user, password):
-    url = 'https://incentivecash.minima.global/api/login'
+    url = 'https://incentive.minima.global/api/login'
     data = {
         'username': user,
         'password': password
@@ -23,14 +23,14 @@ def login(user, password):
         pass
 
 def uid(user):
-    url = 'https://incentivecash.minima.global/api/node-id'
+    url = 'https://incentive.minima.global/api/node-id'
     res = session.get(url=url)
     uid = res.text
     useruid_arr.append(user)
     nodeuid_arr.append(uid)
 
 def rewards():
-    url = 'https://incentivecash.minima.global/api/rewards'
+    url = 'https://incentive.minima.global/api/rewards'
     res = session.get(url=url).json()
     lastPing = res['lastPing'] + '\t'
     dailyRewards = res['rewards']['dailyRewards']
